@@ -47,9 +47,9 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
         
-    # Attempt to build   
+    # Attempt to build (sc)   
     - name: Build (.NET x64)
-      run: dotnet build -c Release  --output bin/Publish/win-x64 -p:PublishSingleFile=true
+      run: dotnet build -c Publish  --output bin/Publish/win-x64-sc/ --sc
       working-directory: Domain
     
     # Create zip archive
@@ -57,8 +57,8 @@ jobs:
       shell: pwsh
       working-directory: Domain
       run: |
-       $outputPath = "./bin/Publish/win-x64"
-       $zipPath = "./bin/Publish/win-x64.zip"
+       $outputPath = "./bin/Publish/win-x64-sc"
+       $zipPath = "C:/win-x64-sc.zip"
        Compress-Archive -Path $outputPath -DestinationPath $zipPath
       
     - name: Create a new GitHub release if a new tag is pushed
