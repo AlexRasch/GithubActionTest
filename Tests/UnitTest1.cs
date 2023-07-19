@@ -11,7 +11,7 @@ namespace Tests
         [Fact]
         public void Sum_1_and_1__not_equal_1()
         {
-            Assert.NotEqual(2, Domain.Calc.Sum(1, 1));
+            Assert.NotEqual(1, Domain.Calc.Sum(1, 1));
         }
     }
 }
