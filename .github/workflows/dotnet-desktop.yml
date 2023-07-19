@@ -47,12 +47,12 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
         
-    # Attempt to build (sc)   
+    # Attempt to build (portable)   
     - name: Build (.NET x64 portable)
       run:  dotnet publish -p:PublishSingleFile=true -r win-x64 -c Release --output bin/Publish/win-x64-sc/ --self-contained true
       working-directory: Domain
     
-    # Create zip archive (sc)
+    # Create zip archive (portable)
     - name: Create .zip file self contained
       shell: pwsh
       working-directory: Domain
@@ -63,7 +63,7 @@ jobs:
        
      # Attempt to build   
     - name: Build (.NET x64)
-      run:  dotnet publish -p:PublishSingleFile=true -r win-x64 -c Release --output bin/Publish/win-x64-sc/ --self-contained false
+      run:  dotnet publish -p:PublishSingleFile=true -r win-x64 -c Release --output bin/Publish/win-x64/ --self-contained false
       working-directory: Domain
     
     # Create zip archive
