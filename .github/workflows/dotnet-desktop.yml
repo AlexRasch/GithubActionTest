@@ -50,12 +50,12 @@ jobs:
     # Attempt to build   
     - name: Build (.NET x64)
       run: dotnet build -c Release  --output bin/Publish/win-x64 -p:PublishSingleFile=true
-      #working-directory: widget
+      working-directory: Domain
     
     # Create zip archive
     - name: Create .zip file
       shell: pwsh
-      working-directory: widget
+      working-directory: Domain
       run: |
        $outputPath = "./bin/Publish/win-x64"
        $zipPath = "./bin/Publish/win-x64.zip"
