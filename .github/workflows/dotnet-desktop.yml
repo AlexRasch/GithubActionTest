@@ -50,7 +50,7 @@ jobs:
     # Attempt to build   
     - name: Build (.NET x64)
       run: dotnet build -c Release  --output bin/Publish/win-x64 -p:PublishSingleFile=true
-      working-directory: widget
+      #working-directory: widget
     
     # Create zip archive
     - name: Create .zip file
